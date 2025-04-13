@@ -1,15 +1,53 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideRouter, RouterOutlet } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
-import { importProvidersFrom } from '@angular/core';
-import { FlightSearchComponent } from './app/components/flight-search/flight-search.component';
 import { AppComponent } from './app/app.component';
+import { provideRouter } from '@angular/router';
+import { routes } from './app/app.routes';
+import { 
+  LucideAngularModule,
+  Plane, 
+  PlaneTakeoff, 
+  PlaneLanding, 
+  CalendarDays, 
+  Calendar,
+  User, 
+  Users,
+  Search, 
+  CreditCard, 
+  Moon,
+  Sun,
+  LogIn,
+  LogOut,
+  Twitter,
+  Facebook,
+  Instagram,
+  Briefcase,
+  List
+} from 'lucide-angular';
+import { importProvidersFrom } from '@angular/core';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideRouter([
-      { path: '', component: FlightSearchComponent },
-    ]),
-    importProvidersFrom(HttpClientModule),
+    provideRouter(routes),
+    importProvidersFrom(LucideAngularModule.pick({ 
+      Plane, 
+      PlaneTakeoff, 
+      PlaneLanding, 
+      CalendarDays, 
+      Calendar,
+      User, 
+      Users,
+      Search, 
+      CreditCard, 
+      Moon,
+      Sun,
+      LogIn,
+      LogOut,
+      Twitter,
+      Facebook,
+      Instagram,
+      Briefcase,
+      List
+    }),
+  )
   ]
-});
+}).catch(err => console.error(err));

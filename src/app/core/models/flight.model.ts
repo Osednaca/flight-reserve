@@ -1,5 +1,4 @@
-import { Airport } from './airport.model';
-import { SeatClass } from './seat-class.model';
+import { Airport } from "./airport.model";
 
 export interface Flight {
   id: string;
@@ -12,7 +11,6 @@ export interface Flight {
   basePrice: number;
   totalCapacity: number;
   availableSeats: number;
-  originAirport?: Airport;
-  destinationAirport?: Airport;
-  seatClasses?: SeatClass[];
+  originDetails?: Airport;
+  destinationDetails?: Airport;
 }
